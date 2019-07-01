@@ -37,14 +37,5 @@ $theme = wp_get_theme();
 $parent_theme = $theme->parent();
 
 if ( $theme->template == 'theretailer') {
-
 	include_once( dirname(__FILE__) . '/includes/shortcodes/shortcodes.php');
-	
-	// Add new WP shortcodes to VC
-	add_action( 'plugins_loaded', function() {
-
-		if ( defined(  'WPB_VC_VERSION' ) ) {
-			include_once( dirname(__FILE__) . '/includes/shortcodes/vc/shortcodes.php');
-		}
-	});
 }
