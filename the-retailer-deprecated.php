@@ -34,7 +34,6 @@ $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 
 global $theme;
 $theme = wp_get_theme();
-$parent_theme = $theme->parent();
 
 if ( $theme->template == 'theretailer') {
 	include_once( dirname(__FILE__) . '/includes/shortcodes/shortcodes.php');
