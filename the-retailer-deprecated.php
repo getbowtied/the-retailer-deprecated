@@ -37,4 +37,5 @@ $theme = wp_get_theme();
 
 if ( $theme->template == 'theretailer') {
 	include_once( dirname(__FILE__) . '/includes/shortcodes/shortcodes.php');
+	include_once( dirname(__FILE__) . '/includes/templates/index.php');
 }
