@@ -15,7 +15,7 @@ Deprecated:
 == Changelog ==
 
 = 1.1 =
-- Moved old theme templates
+- Moved deprecated theme templates
 
 = 1.0 =
 - Initial Version

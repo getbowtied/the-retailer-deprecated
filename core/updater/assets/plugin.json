@@ -6,14 +6,14 @@
 	"homepage": "https://themeforest.net/item/the-retailer-responsive-wordpress-theme/4287447",
 	"requires": "5.0",
 	"tested": "5.2.3",
-	"last_updated": "2019-09-13 15:00:00",
+	"last_updated": "2019-09-13 18:00:00",
 
 	"author": "GetBowtied",
 	"author_homepage": "https://getbowtied.com/",
 
 	"sections": {
 		"description": "<p>The Retailer Deprecated Features is a new plugin coming with the theme offering a fallback for old features that are no longer used.</p><h4>Deprecated:</h4><ul><li>WPBakery's Page Builder elements</li></ul>",
-		"changelog": "<h4>1.1</h4><ul><li>Moved old theme templates</li></ul><h4>1.0</h4><ul><li>Initial Version</li></ul>"
+		"changelog": "<h4>1.1</h4><ul><li>Moved deprecated theme templates</li></ul><h4>1.0</h4><ul><li>Initial Version</li></ul>"
 	},
 
 	"icons" : {
