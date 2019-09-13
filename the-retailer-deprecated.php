@@ -4,13 +4,13 @@
  * Plugin Name:       		The Retailer Deprecated Features
  * Plugin URI:        		https://theretailer.wp-theme.design/
  * Description:       		Old features of The Retailer theme that are no longer used.
- * Version:           		1.0
+ * Version:           		1.1
  * Author:            		GetBowtied
  * Author URI:				https://getbowtied.com
  * Text Domain:				the-retailer-deprecated
  * Domain Path:				/languages/
  * Requires at least: 		5.0
- * Tested up to: 			5.2.2
+ * Tested up to: 			5.2.3
  *
  * @package  The Retailer Deprecated
  * @author   GetBowtied
