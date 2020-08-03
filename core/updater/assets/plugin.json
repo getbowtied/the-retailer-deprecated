@@ -1,19 +1,19 @@
 {
 	"name": "The Retailer Deprecated Features",
-	"version": "1.2.1",
+	"version": "1.2.2",
 	"download_url": "https://github.com/getbowtied/the-retailer-deprecated/zipball/master",
 
 	"homepage": "https://themeforest.net/item/the-retailer-responsive-wordpress-theme/4287447",
 	"requires": "5.0",
-	"tested": "5.3.1",
-	"last_updated": "2019-12-16 16:00:00",
+	"tested": "5.5",
+	"last_updated": "2020-08-04 11:00:00",
 
 	"author": "GetBowtied",
 	"author_homepage": "https://getbowtied.com/",
 
 	"sections": {
 		"description": "<p>The Retailer Deprecated Features is a new plugin coming with the theme offering a fallback for old features that are no longer used.</p><h4>Deprecated:</h4><ul><li>WPBakery's Page Builder elements</li></ul>",
-		"changelog": "<h4>1.2.1</h4><ul><li>WordPress 5.3.1 compatibility updates</li></ul><h4>1.2</h4><ul><li>WordPress 5.3 compatibility updates</li></ul><h4>1.1</h4><ul><li>Moved deprecated theme templates</li></ul><h4>1.0</h4><ul><li>Initial Version</li></ul>"
+		"changelog": "<h4>1.2.2</h4><ul><li>WordPress 5.5 compatibility updates</li></ul><h4>1.2.1</h4><ul><li>WordPress 5.3.1 compatibility updates</li></ul><h4>1.2</h4><ul><li>WordPress 5.3 compatibility updates</li></ul><h4>1.1</h4><ul><li>Moved deprecated theme templates</li></ul><h4>1.0</h4><ul><li>Initial Version</li></ul>"
 	},
 
 	"icons" : {
