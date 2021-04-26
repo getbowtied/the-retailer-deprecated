@@ -108,7 +108,7 @@ class TR_Deprecated_Templates {
 	       }
 
 		   if( ( !empty($page_template) && ( 'page-single_footer.php' === $page_template ) ) ) {
-	           update_post_meta( $page->ID, '_wp_page_template', 'page.php' );
+	           update_post_meta( $page->ID, '_wp_page_template', '' );
 			   update_post_meta( $page->ID, 'page_light_footer_meta_box_check', false );
 			   update_post_meta( $page->ID, 'page_dark_footer_meta_box_check', 'on' );
 	       }
