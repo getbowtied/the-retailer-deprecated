@@ -18,13 +18,13 @@ class TR_Deprecated_Templates {
     protected $templates;
 
     /**
-	 * Returns an instance of this class. 
+	 * Returns an instance of this class.
 	 */
     public static function get_instance() {
 
 		if( null == self::$instance ) {
 			self::$instance = new TR_Deprecated_Templates();
-		} 
+		}
 
 		return self::$instance;
 
@@ -55,28 +55,68 @@ class TR_Deprecated_Templates {
 
 		}
 
+		if( !get_option( 'theretailer_page_template_change', false ) ) {
+		    add_action( 'init', array( $this, 'change_page_templates' ) );
+		}
+
 		// Add a filter to the save post to inject out template into the page cache
 		add_filter(
-			'wp_insert_post_data', 
-			array( $this, 'register_project_templates' ) 
+			'wp_insert_post_data',
+			array( $this, 'register_project_templates' )
 		);
 
-		// Add a filter to the template include to determine if the page has our 
+		// Add a filter to the template include to determine if the page has our
 		// template assigned and return it's path
 		add_filter(
-			'template_include', 
-			array( $this, 'view_project_template') 
+			'template_include',
+			array( $this, 'view_project_template')
 		);
 
 		// Add your templates to this array.
 		$this->templates = array(
 			'page-archive.php' => 'Archive',
 			'page-blank.php' => 'Blank',
-			'page-full_single_footer.php' => '100% Width - Single Footer',
-			'page-single_footer.php' => 'Default Template - Single Footer',
-			'page-with_left_sidebar_single_footer.php' => 'Page with Left Sidebar - Single Footer',
-			'page-with_sidebar_single_footer.php' => 'Page with Sidebar - Single Footer',
 		);
+	}
+
+	/**
+	 * Update page templates.
+	 */
+	function change_page_templates() {
+
+	    $pages = get_pages( array( 'post_type' => 'page' ) );
+
+	    foreach($pages as $page){
+	       $page_template = get_post_meta($page->ID, '_wp_page_template', true); // Page template stored in "_wp_page_template"
+
+		   if( ( !empty($page_template) && ( 'page-full_single_footer.php' === $page_template ) ) ) {
+	           update_post_meta( $page->ID, '_wp_page_template', 'page-full.php' );
+			   update_post_meta( $page->ID, 'page_light_footer_meta_box_check', false );
+			   update_post_meta( $page->ID, 'page_dark_footer_meta_box_check', 'on' );
+	       }
+
+		   if( ( !empty($page_template) && ( 'page-with_left_sidebar_single_footer.php' === $page_template ) ) ) {
+	           update_post_meta( $page->ID, '_wp_page_template', 'page-with_left_sidebar.php' );
+			   update_post_meta( $page->ID, 'page_light_footer_meta_box_check', false );
+			   update_post_meta( $page->ID, 'page_dark_footer_meta_box_check', 'on' );
+	       }
+
+		   if( ( !empty($page_template) && ( 'page-with_sidebar_single_footer.php' === $page_template ) ) ) {
+	           update_post_meta( $page->ID, '_wp_page_template', 'page-with_sidebar.php' );
+			   update_post_meta( $page->ID, 'page_light_footer_meta_box_check', false );
+			   update_post_meta( $page->ID, 'page_dark_footer_meta_box_check', 'on' );
+	       }
+
+		   if( ( !empty($page_template) && ( 'page-single_footer.php' === $page_template ) ) ) {
+	           update_post_meta( $page->ID, '_wp_page_template', 'page.php' );
+			   update_post_meta( $page->ID, 'page_light_footer_meta_box_check', false );
+			   update_post_meta( $page->ID, 'page_dark_footer_meta_box_check', 'on' );
+	       }
+	    }
+
+	    update_option( 'theretailer_page_template_change', true );
+
+	    return;
 	}
 
 	/**
@@ -93,12 +133,12 @@ class TR_Deprecated_Templates {
 		// Create the key used for the themes cache
 		$cache_key = 'page_templates-' . md5( get_theme_root() . '/' . get_stylesheet() );
 
-		// Retrieve the cache list. 
+		// Retrieve the cache list.
 		// If it doesn't exist, or it's empty prepare an array
 		$templates = wp_get_theme()->get_page_templates();
 		if ( empty( $templates ) ) {
 			$templates = array();
-		} 
+		}
 
 		// New cache, therefore remove the old one
 		wp_cache_delete( $cache_key , 'themes');
@@ -118,7 +158,7 @@ class TR_Deprecated_Templates {
 	 * Checks if the template is assigned to the page
 	 */
 	public function view_project_template( $template ) {
-		
+
 		// Get global post
 		global $post;
 
@@ -128,13 +168,13 @@ class TR_Deprecated_Templates {
 		}
 
 		// Return default template if we don't have a custom one defined
-		if ( !isset( $this->templates[get_post_meta( 
-			$post->ID, '_wp_page_template', true 
+		if ( !isset( $this->templates[get_post_meta(
+			$post->ID, '_wp_page_template', true
 		)] ) ) {
 			return $template;
-		} 
+		}
 
-		$file = plugin_dir_path(__FILE__). get_post_meta( 
+		$file = plugin_dir_path(__FILE__). get_post_meta(
 			$post->ID, '_wp_page_template', true
 		);
 
